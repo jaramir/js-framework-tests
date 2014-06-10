@@ -58,6 +58,14 @@ app.get('/stock-5.json', requireAuth(function(req, res) {
     });
 }));
 
+app.get('/stock-6.json', requireAuth(function(req, res) {
+    res.send({
+        "id": 6,
+        "symbol": "GOOG US",
+        "name": "Google Inc"
+    });
+}));
+
 
 app.get('/sessions.json', function(req, res) {
     res.send(req.session.data);
@@ -88,6 +96,9 @@ app.delete('/sessions.json', function(req, res) {
 app.get('/stock/5', function(req, res){
    res.sendfile('index.html');
 });
+app.get('/stock/6', function(req, res){
+   res.sendfile('index.html');
+});
 app.get('/login', function(req, res){
    res.sendfile('index.html');
 });
@@ -96,4 +107,3 @@ app.get('/login', function(req, res){
 var port = 3000;
 app.listen(port);
 console.log('server listening on port ' + port);
-

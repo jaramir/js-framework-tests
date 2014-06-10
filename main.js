@@ -12,7 +12,6 @@ $(document).ready(function() {
 // - the nav view's lifecycle is long, it is told to change state when
 //   the main view changes.
 
-
 function requireAuth(cb) {
     return function() {
         var args = arguments;
@@ -156,9 +155,16 @@ var HomeView = Backbone.View.extend({
         this.$el.html(template());
         this.$('.watchlist-container').append(this.watchlistView.render().el);
         return this;
+    },
+    events: {
+        'click a': '_stockClicked'
+    },
+    _stockClicked: function(e) {
+        e.preventDefault();
+        var pageName = e.target.pathname.substr(1);
+        Backbone.history.navigate(pageName, {trigger: true});
     }
 });
-
 
 var StockView = Backbone.View.extend({
     stock: null,

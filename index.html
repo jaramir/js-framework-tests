@@ -45,7 +45,7 @@
   <h2>Watchlist</h2>
   <ul>
     <% _.each(watchlist, function(stock) { %>
-      <li><%- stock.symbol %>: <%- stock.name %></li>
+      <li><a href="/stock/<%- stock.id %>"><%- stock.symbol %>: <%- stock.name %></a></li>
     <% }); %>
   </ul>
 </script>
